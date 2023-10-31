@@ -1,8 +1,13 @@
-# React + Vite
+# Projet Countrix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### React + Vite
 
-Currently, two official plugins are available:
+Projet effectué à l'aide de l'API : https://restcountries.com/v3.1/all
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Ce projet permet d'afficher des données de pays tel que :
+- La capital
+- La population
+- Le drapeau
+
+On peut sélectionner les pays en fonction du continents avec une liste déroulante.
+## ATENTION : L'API à du mal à suivre les changements successifs de continants
