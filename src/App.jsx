@@ -3,7 +3,11 @@ import { Routes, Route, useLocation } from 'react-router-dom'; // Importation de
 
 import CountryCard from './components/CountryCard';
 import RegionSelector from './components/RegionSelector';
-import CountryDetails from './components/CountryDetails';
+import Footer from './components/Footer'; // Import du Footer
+import CountryDetails from './pages/CountryDetails';
+import About from './pages/About'; // Import des pages
+import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App () {
   // Liste des pays
@@ -46,7 +50,6 @@ function App () {
         </div>
       )}
 
-      
       <Routes>
         {/* Route principale avec la liste des pays */}
         <Route
@@ -59,10 +62,14 @@ function App () {
             </div>
           }
         />
-
         {/* Route pour les détails d'un pays */}
         <Route path='/country/:name' element={<CountryDetails />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }
