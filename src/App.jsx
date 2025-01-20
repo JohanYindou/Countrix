@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom'; // Importation des routes
-
+import { Routes, Route, useLocation, Link } from 'react-router-dom'; // Importation des routes
 import CountryCard from './components/CountryCard';
 import RegionSelector from './components/RegionSelector';
 import Footer from './components/Footer'; // Import du Footer
@@ -41,34 +40,40 @@ function App () {
   return (
     <>
       <header className='text-center justify-content-center text-light p-4'>
-        <h1>Countrix</h1>
+        <Link to='/' className='text-decoration-none text-white'>
+          <h1>Countrix</h1>
+        </Link>
       </header>
-      {/* Afficher le header uniquement sur la route "/" */}
-      {location.pathname === '/' && (
-        <div className='text-center justify-content-center text-light p-4'>
-          <RegionSelector onChange={setRegion} />
-        </div>
-      )}
 
-      <Routes>
-        {/* Route principale avec la liste des pays */}
-        <Route
-          path='/'
-          element={
-            <div className='row gap-4 text-center justify-content-center'>
-              {countries.map((country) => (
-                <CountryCard key={country.cca2} country={country} />
-              ))}
-            </div>
-          }
-        />
-        {/* Route pour les détails d'un pays */}
-        <Route path='/country/:name' element={<CountryDetails />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-      </Routes>
+      <div className='main-content'>
+        {/* Afficher le header uniquement sur la route "/" */}
+        {location.pathname === '/' && (
+          <div className='text-center justify-content-center text-light p-4'>
+            <RegionSelector onChange={setRegion} />
+          </div>
+        )}
 
+        <Routes>
+          {/* Route principale avec la liste des pays */}
+          <Route
+            path='/'
+            element={
+              <div className='row gap-4 text-center justify-content-center'>
+                {countries.map((country) => (
+                  <CountryCard key={country.cca2} country={country} />
+                ))}
+              </div>
+            }
+          />
+          {/* Route pour les détails d'un pays */}
+          <Route path='/country/:name' element={<CountryDetails />} />
+
+          {/* Routes du footer */}
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+        </Routes>
+      </div>
       <Footer />
     </>
   );
