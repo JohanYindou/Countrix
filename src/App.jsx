@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom'; // Importation des routes
+
 import CountryCard from './components/CountryCard';
 import RegionSelector from './components/RegionSelector';
+import CountryDetails from './components/CountryDetails';
 
-function App() {
+function App () {
   // Liste des pays
   /**
    *  On défini un constant React avec un tableau à la place initial du nom
@@ -19,6 +22,7 @@ function App() {
 
   const [region, setRegion] = useState('Europe');
 
+
   // API restcountries
 
   useEffect(() => {
@@ -27,18 +31,38 @@ function App() {
       .then((data) => setCountries(data)); //.then((data) => console.log(data));
   }, [region]);
 
+
+  const location = useLocation();
+
   return (
     <>
-      <header className="text-center justify-content-center text-light p-4">
+      <header className='text-center justify-content-center text-light p-4'>
         <h1>Countrix</h1>
-        <RegionSelector onChange={setRegion} />
       </header>
+      {/* Afficher le header uniquement sur la route "/" */}
+      {location.pathname === '/' && (
+        <div className='text-center justify-content-center text-light p-4'>
+          <RegionSelector onChange={setRegion} />
+        </div>
+      )}
 
-      <div className="row gap-4 text-center justify-content-center">
-        {countries.map((country) => (
-          <CountryCard key={country.cca2} country={country} />
-        ))}
-      </div>
+      
+      <Routes>
+        {/* Route principale avec la liste des pays */}
+        <Route
+          path='/'
+          element={
+            <div className='row gap-4 text-center justify-content-center'>
+              {countries.map((country) => (
+                <CountryCard key={country.cca2} country={country} />
+              ))}
+            </div>
+          }
+        />
+
+        {/* Route pour les détails d'un pays */}
+        <Route path='/country/:name' element={<CountryDetails />} />
+      </Routes>
     </>
   );
 }
