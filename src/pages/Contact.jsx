@@ -1,46 +1,53 @@
 function Contact() {
   return (
-    <div className='container py-4'>
-      <h2 className='text-center mb-4 text-white'>Contactez-nous</h2>
+    <section className='mx-auto max-w-4xl rounded-2xl border border-white/10 bg-slate-900/70 p-6 shadow-xl shadow-slate-900/30 md:p-8'>
+      <h2 className='mb-6 text-center text-3xl font-bold text-white'>
+        Contactez-nous
+      </h2>
 
-      {/* Carte avec className pour appliquer les styles */}
-      <div className='card shadow-sm'>
-        <div className='card-body'>
-          <h5 className='card-title text-center'>Informations de Contact</h5>
+      <div className='space-y-4 text-slate-200'>
+        <h3 className='text-center text-xl font-semibold text-slate-100'>
+          Informations de contact
+        </h3>
 
-          <p className='card-text'>
-            Nous serions heureux de recevoir vos questions, suggestions ou
-            commentaires. Voici comment vous pouvez nous contacter :
-          </p>
+        <p>
+          Nous serions heureux de recevoir vos questions, suggestions ou
+          commentaires. Voici comment vous pouvez nous contacter :
+        </p>
 
-          <p className='card-text'>
-            <strong>Email :</strong>{' '}
-            <a href='mailto:jyindou@gmail.com' className='text-decoration-none'>
-              jyindou@gmail.com
-            </a>
-          </p>
+        <p>
+          <strong>Email :</strong>{' '}
+          <a
+            href='mailto:jyindou@gmail.com'
+            className='font-medium text-sky-300 transition hover:text-sky-200'
+          >
+            jyindou@gmail.com
+          </a>
+        </p>
 
-          <p className='card-text'>
-            <strong>Téléphone :</strong>{' '}
-            <a href='tel:+33627571890' className='text-decoration-none'>
-              +33 6 27 57 18 90
-            </a>
-          </p>
+        <p>
+          <strong>Telephone :</strong>{' '}
+          <a
+            href='tel:+33627571890'
+            className='font-medium text-sky-300 transition hover:text-sky-200'
+          >
+            +33 6 27 57 18 90
+          </a>
+        </p>
 
-          <p className='card-text'>
-            <strong>Heures de disponibilité :</strong>
-            <br />
-            Nous sommes disponibles du lundi au vendredi, de 9h à 18h. N'hésitez
-            pas à nous contacter pendant ces horaires.
-          </p>
+        <p>
+          <strong>Heures de disponibilite :</strong>
+          <br />
+          Nous sommes disponibles du lundi au vendredi, de 9h a 18h. N&apos;hesitez
+          pas a nous contacter pendant ces horaires.
+        </p>
 
-          <p className='card-text'>
-            Nous nous engageons à répondre à toutes les demandes dans les plus
-            brefs délais.
-          </p>
-        </div>
+        <p>
+          Nous nous engageons a repondre a toutes les demandes dans les plus
+          brefs delais.
+        </p>
       </div>
-    </div>
+    </section>
   );
 }
 
