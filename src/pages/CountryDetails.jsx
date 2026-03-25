@@ -74,6 +74,16 @@ function CountryDetails() {
       );
     }
 
+    const drivingSide =
+    country.car?.side === 'left'
+      ? 'à gauche'
+      : country.car?.side === 'right'
+      ? 'à droite'
+      : 'N/A';
+  
+      const demonyms = country.demonyms?.fra || country.demonyms?.eng;
+
+      
   return (
     <div className='max-w-6xl mx-auto px-4 py-8 space-y-8 text-white'>
       <button
@@ -100,7 +110,7 @@ function CountryDetails() {
               {country.region} • {country.subregion}
             </p>
           </div>
-        </div>
+  </div>
   {/* GRID */}
   <div className="grid gap-6 md:grid-cols-2">
           <div className="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
@@ -129,9 +139,22 @@ function CountryDetails() {
             </div>
 
             <p><span className="font-medium">Fuseaux :</span> {country.timezones?.join(', ')}</p>
-            <p><span className="font-medium">Conduite :</span> {country.car?.side}</p>
+            <p className="text-slate-300">
+              <span className="font-medium">Conduite :</span> 🚗 {drivingSide}
+            </p>
+            {demonyms ? (
+              <div className="space-y-1">
+                <p className="font-medium text-slate-200">Habitants :</p>
+                <div className="flex gap-4 text-sm text-slate-300">
+                  <span>♀ {demonyms.f}</span>
+                  <span>♂ {demonyms.m}</span>
+                </div>
+              </div>
+            ) : (
+              <p className="text-slate-400">Habitants : N/A</p>
+            )}
           </div>
-        </div>
+  </div>
 
   {/* MAP */}
   {country.capitalInfo?.latlng && (
